@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Privacy policy for Docs2Wallet, including the Apple Pass Type ID certificate used to sign passes.">
+  <title>Docs2Wallet Privacy Policy</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-view="policy" data-folder="Docs_to_Wallet_Privacy_Policy">
+  <a class="skip" href="#policy">Skip to policy</a>
+  <header class="toolbar">
+    <div class="toolbar-row">
+      <a class="back" href="../">
+        <svg viewBox="0 0 12 20" aria-hidden="true"><path d="M10 2 L2 10 L10 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Policies
+      </a>
+    </div>
+  </header>
+  <main class="frame policy" id="policy">
+    <header class="title-block">
+      <h1>Docs2Wallet</h1>
+      <p class="updated">Privacy Policy · Updated September 29, 2026</p>
+    </header>
+    <div id="sections"></div>
+    <article>
+      <p>This policy describes how the Docs2Wallet iOS app handles information when you turn a document you already have into a personal Apple Wallet pass. Docs2Wallet is published by Arison. The pass is signed with an Apple Pass Type ID certificate issued to Apple Developer Team ID <code>MDV83ZYNR6</code>.</p>
+      <p>Docs2Wallet makes a personal copy for your own Wallet. The pass states on its back that it was created from your document and was not issued by the event organizer.</p>
+
+      <nav class="toc" aria-label="On this page">
+        <a href="#on-device">Information that stays on your device</a>
+        <a href="#signing">Information used to sign a pass</a>
+        <a href="#certificate">The signing certificate</a>
+        <a href="#contents">What the signed pass contains</a>
+        <a href="#limits">What the certificate does not authorize</a>
+        <a href="#retention">Retention and sharing</a>
+        <a href="#choices">Your choices</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <h2 id="on-device">Information that stays on your device</h2>
+      <p>You can import a screenshot, a PDF, pasted text, or a ticket link you already have. Docs2Wallet reads that material on your iPhone to suggest pass fields. That reading uses Apple frameworks on the device, including Vision for text and barcodes. When Improve extraction with on-device AI is available and left on, Docs2Wallet uses Apple Intelligence through the on-device Foundation Models framework. The screenshot, PDF, and extracted text are not uploaded for that reading.</p>
+      <p>If you keep generated passes on this device, Docs2Wallet stores the pass you created in the app’s local storage, protected by iOS file protection. You can delete that local data in the app.</p>
+      <p>Calendar is optional. After a pass is handed to Wallet, you can save a matching event. That write uses EventKit on your device. Calendar contents are not sent to the signing service.</p>
+
+      <h2 id="signing">Information used to sign a pass</h2>
+      <p>You review the pass before it is signed. Only after you confirm does Docs2Wallet send the fields and images for that pass to the signing service. The original screenshot, PDF, or full extraction text is not part of that request.</p>
+      <p>The signing service builds the <code>.pkpass</code> package, signs it with the Pass Type ID certificate, and returns the file to your device. It does not keep a database of your documents, passes, or Apple ID. The request exists for that signing step and is not retained as a stored pass.</p>
+
+      <h2 id="certificate">The signing certificate</h2>
+      <p>Apple Wallet accepts a pass when the pass is signed by a Pass Type ID certificate that Apple issued to a developer account. Docs2Wallet uses one certificate for the passes it creates. You can see the same identifiers on the certificate in Apple Developer, under Certificates, Identifiers &amp; Profiles, where it is listed as a Pass Type ID Certificate.</p>
+
+      <dl class="spec">
+        <div>
+          <dt>Certificate</dt>
+          <dd>Pass Type ID Certificate</dd>
+        </div>
+        <div>
+          <dt>Pass Type ID</dt>
+          <dd><code>pass.com.threadedrealm.doc-wallet</code></dd>
+        </div>
+        <div>
+          <dt>Team ID</dt>
+          <dd><code>MDV83ZYNR6</code></dd>
+        </div>
+        <div>
+          <dt>Listed in</dt>
+          <dd>Certificates, Identifiers &amp; Profiles</dd>
+        </div>
+      </dl>
+
+      <p>Those two identifiers are written into every <code>pass.json</code> the app signs. <code>passTypeIdentifier</code> must match the Pass Type ID on the certificate. <code>teamIdentifier</code> must match the Team ID on the certificate. Wallet uses that match to attribute the pass to this developer account. The identifiers are not your Apple ID, and they are not the name of the venue printed on the pass. The venue name comes from the document you confirmed. The certificate name is the developer account that signed the file.</p>
+      <p>The private key for the certificate stays with signing. It is not placed in the pass, and it is not sent to you.</p>
+      <p>Signing covers the files in the pass package. Docs2Wallet writes <code>manifest.json</code> with a SHA-1 hash of each file, then creates a detached PKCS #7 signature over that manifest with the Pass Type ID certificate. The signature uses SHA-256 and includes a signing time. The public certificate is embedded in the signature so Wallet can check it through Apple’s Worldwide Developer Relations intermediate certificate. When the check succeeds, Wallet treats the text and images in the package as issued under this Pass Type ID.</p>
+      <div class="note">
+        <p>The certificate binds the pass you approved to Team ID <code>MDV83ZYNR6</code> and Pass Type ID <code>pass.com.threadedrealm.doc-wallet</code>. It does not insert a separate copy of your personal information. Personal details appear in the pass only when they are part of the fields or images you confirmed.</p>
+      </div>
+
+      <h2 id="contents">What the signed pass contains</h2>
+      <p>The signature covers <code>pass.json</code> and the images in the package. Depending on the document you confirmed, <code>pass.json</code> can include:</p>
+      <ul>
+        <li>Format version <code>1</code>, the Pass Type ID, the Team ID, and a serial number. The serial number is a unique identifier generated for that pass.</li>
+        <li>A description and an organization name taken from the document, such as the event or venue name.</li>
+        <li>The pass style you are creating, such as an event ticket, boarding pass, store card, coupon, or generic pass.</li>
+        <li>Fields you confirmed: event title, organization, venue, address, date and time, doors, additional event days, seating (section, row, seat, or gate), a short details summary, and reference values read from the document.</li>
+        <li>Ticket, event, or organizer URLs, including a tappable link so you can open the original page if a code will not scan.</li>
+        <li>A barcode or QR payload and its label, when the code uses a format Wallet can draw. Other code payloads from the same document may be placed as text on the back of the pass.</li>
+        <li>A relevant date, so Wallet can surface the pass around the event time.</li>
+        <li>A place, when the document includes one that can be located: a latitude, a longitude, and a short label. That place is the venue on the pass. Docs2Wallet does not collect your iPhone’s live location for this.</li>
+        <li>Colors used to draw the pass.</li>
+        <li>A fixed note on the back: “Created with Docs2Wallet from your own screenshot. Not issued by the event organizer.”</li>
+      </ul>
+      <p>The package also includes the pass icon and any images you chose to place on the pass. Those image files are hashed and covered by the same signature. Photos you select in the app leave the device only when they are part of the confirmed pass.</p>
+      <p>A document can contain a person’s name, a confirmation code, a membership identifier, or similar details. If you leave those details in the fields you confirm, they are inside the signed pass and are covered by the certificate in the way described above.</p>
+
+      <h2 id="limits">What the certificate does not authorize</h2>
+      <p>The Pass Type ID certificate lets Wallet trust this pass as signed by this developer team. It does not give Docs2Wallet access to the other passes in your Wallet, your Apple ID, iCloud, or apps other than the photos, files, and calendar events you choose inside Docs2Wallet.</p>
+      <p>The signed pass does not include a <code>webServiceURL</code> or an <code>authenticationToken</code>. Your device does not call Docs2Wallet later to refresh the pass, and Docs2Wallet does not receive a device library identifier or a push token for it. The pass also does not include an NFC payload.</p>
+      <p>The certificate record in the Apple Developer portal lists the Pass Type ID and the team. It does not list your tickets.</p>
+      <p>Docs2Wallet does not use the information from your document to track you across apps or websites, and it does not use it for advertising. Docs2Wallet does not sell that information.</p>
+
+      <h2 id="retention">Retention and sharing</h2>
+      <p>On the signing service, the confirmed pass is processed to produce the file that returns to your iPhone and is not kept as a stored pass. On your iPhone, a pass you asked the app to keep remains until you delete it, turn off keeping generated passes, or use Delete all data. Removing the pass from Wallet is a separate step in the Wallet app.</p>
+      <p>Apple receives the pass when you add it to Wallet. Apple’s handling of Wallet is described in <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a>. Docs2Wallet does not send Apple the original screenshot as part of signing.</p>
+
+      <h2 id="choices">Your choices</h2>
+      <ul>
+        <li>Edit or remove fields on the review screen before you confirm the pass.</li>
+        <li>Choose whether on-device extraction assistance is used, where your iPhone supports it.</li>
+        <li>Choose whether generated passes stay on the device, and delete local app data when you want it gone.</li>
+        <li>Decline the optional calendar event.</li>
+        <li>Remove the pass from Wallet at any time.</li>
+      </ul>
+      <p>Docs2Wallet is not directed to children under 13. Where privacy law gives you a right to ask about the information described here, email the address below. Because the signing service does not keep the pass, deletion of a pass you already created is done on your device and in Wallet.</p>
+
+      <h2 id="changes">Changes</h2>
+      <p>If this policy changes, the updated date on this page will change with it. The current version is September 29, 2026.</p>
+
+      <h2 id="contact">Contact</h2>
+      <p>Questions about this policy or about Docs2Wallet: <a href="mailto:arison.dev@gmail.com">arison.dev@gmail.com</a>.</p>
+    </article>
+  </main>
+  <nav class="tab-bar" id="tab-bar" aria-label="Privacy policies"></nav>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

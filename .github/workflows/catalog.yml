@@ -1,0 +1,29 @@
+name: Update policy catalog
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - catalog.json
+
+permissions:
+  contents: write
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild catalog from policy folders
+        run: python3 scripts/build_catalog.py
+      - name: Commit catalog when a folder changed it
+        run: |
+          if git diff --quiet -- catalog.json; then
+            echo "Catalog already matches the policy folders."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalog.json
+          git commit -m "Refresh the privacy policy catalog from folders."
+          git push
