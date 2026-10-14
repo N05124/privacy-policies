@@ -30,3 +30,7 @@ A push to `main` also rebuilds `catalog.json` when the committed catalog is behi
 GitHub Pages serves this repository from the `main` branch. Use the Docs2Wallet document as the privacy policy URL in App Store Connect:
 
 `https://n05124.github.io/privacy-policies/Docs_to_Wallet_Privacy_Policy/`
+
+## For agents
+
+Claude, Cursor and Agent Forge agents follow [CLAUDE.md](CLAUDE.md) to add, update or patch a policy.
