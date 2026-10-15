@@ -44,7 +44,7 @@
 
       <h2 id="on-device">Information that stays on your device</h2>
       <p>You can import a screenshot, a PDF, pasted text, or a ticket link you already have. Docs2Wallet reads that material on your iPhone to suggest pass fields. That reading uses Apple frameworks on the device, including Vision for text and barcodes. When your iPhone supports Apple Intelligence, Docs2Wallet also uses it through the on-device Foundation Models framework. The screenshot, PDF, and extracted text are not uploaded for that reading.</p>
-      <p>When you import a ticket link, Docs2Wallet downloads that page from its website, the way a browser would, and reads it on your iPhone. That website sees an ordinary request for the page. If you choose to try loading the page in a web view, it is loaded without keeping cookies or a cache.</p>
+      <p>When you import a ticket link, Docs2Wallet downloads that page from its website, the way a browser would, and reads it on your iPhone. That website sees an ordinary request for the page, and iOS may keep that site’s cookies and cached copy in the app’s storage, as it would for any app. If you choose to try loading the page in a web view, that view keeps no cookies or cache.</p>
       <p>You can also send material to Docs2Wallet from another app with the share sheet: up to three images, one file or PDF, text, or a link, plus an optional note. The share extension places a temporary copy in the app’s own storage on your iPhone, and Docs2Wallet deletes that copy when it imports it the next time you open the app.</p>
       <p>Passes you confirm are listed in My Passes only until you quit the app. Docs2Wallet does not save them. The copy you keep is the one in Wallet.</p>
       <p>Calendar is optional. After a pass is handed to Wallet, you can save a matching event with its title, location, notes and link. Docs2Wallet asks only for permission to add events, not to read your calendar. You can instead share the event as an <code>.ics</code> file, which is prepared in the app’s temporary folder on your iPhone. Calendar contents are not sent to the signing service.</p>
@@ -52,7 +52,7 @@
       <h2 id="signing">Information used to sign a pass</h2>
       <p>You review the pass before it is signed. Only after you confirm does Docs2Wallet send the fields for that pass to the signing service. The original screenshot, PDF, photos, or full extraction text are not part of that request.</p>
       <p>The signing service builds the <code>.pkpass</code> package, signs it with the Pass Type ID certificate, and returns the file to your device. It does not keep a database of your documents, passes, or Apple ID. The request exists for that signing step and is not retained as a stored pass.</p>
-      <p>To make sure signing requests come from a genuine copy of Docs2Wallet, the app uses Apple’s App Attest service. The first time you sign a pass, your iPhone creates an App Attest key with Apple and sends the signing service the key’s identifier and Apple’s attestation. Each later request carries a one-time proof made with that key. The key identifier is not your Apple ID and does not identify you. The signing service keeps it so it can recognise this installation of the app, and your iPhone keeps it in the app’s Keychain.</p>
+      <p>To make sure signing requests come from a genuine copy of Docs2Wallet, the app uses Apple’s App Attest service. The first time you sign a pass, your iPhone creates an App Attest key with Apple and sends the signing service the key’s identifier and Apple’s attestation. Each later request carries a one-time proof made with that key. The key identifier is not your Apple ID and does not identify you. The signing service keeps it so it can recognise this installation of the app, and your iPhone keeps it in the Keychain, where it can remain after the app is deleted.</p>
 
       <h2 id="certificate">The signing certificate</h2>
       <p>Apple Wallet accepts a pass when the pass is signed by a Pass Type ID certificate that Apple issued to a developer account. Docs2Wallet uses one certificate for the passes it creates. You can see the same identifiers on the certificate in Apple Developer, under Certificates, Identifiers &amp; Profiles, where it is listed as a Pass Type ID Certificate.</p>
@@ -98,7 +98,7 @@
         <li>A fixed note on the back saying the pass was created from your own document and was not issued by the event organizer.</li>
       </ul>
       <p>The package also includes the pass icon, which the signing service adds. Those image files are hashed and covered by the same signature. Photos and screenshots you import are not placed in the pass.</p>
-      <p>A document can contain personal details. Before a pass is signed, Docs2Wallet runs a privacy filter on your iPhone that leaves out details such as ID and passport numbers, payment card and bank numbers, personal addresses, phone numbers, email addresses and dates of birth. Attendee names are left off unless you turn them on for that pass. For some details the app warns you and you can choose Include anyway. The filter works by recognising patterns, so it can miss something: check the fields on the review screen. Whatever you leave in the fields you confirm is inside the signed pass and is covered by the certificate in the way described above.</p>
+      <p>A document can contain personal details. Before a pass is signed, Docs2Wallet runs a privacy filter on your iPhone that leaves out details such as ID and passport numbers, payment card and bank numbers, personal addresses, phone numbers, email addresses and dates of birth. Attendee names are left off unless you turn on Show name on the pass for that pass. The filter works by recognising patterns, so it can miss something: check the fields on the review screen. Whatever you leave in the fields you confirm is inside the signed pass and is covered by the certificate in the way described above.</p>
 
       <h2 id="limits">What the certificate does not authorize</h2>
       <p>The Pass Type ID certificate lets Wallet trust this pass as signed by this developer team. It does not give Docs2Wallet access to the other passes in your Wallet, your Apple ID, iCloud, or apps other than the photos, files, and calendar events you choose inside Docs2Wallet.</p>
@@ -111,7 +111,7 @@
 
       <h2 id="purchases">Purchases</h2>
       <p>Your first passes each year are free. A one-time purchase through the App Store unlocks more. Apple handles the payment, and Docs2Wallet does not receive your payment details. The app checks with the App Store on your iPhone whether your account owns the unlock.</p>
-      <p>To count free passes, Docs2Wallet keeps a small counter in the Keychain on this iPhone. It is not synced or sent anywhere, and it may remain on the iPhone after the app is deleted.</p>
+      <p>To count free passes, Docs2Wallet keeps a short record in the Keychain on this iPhone: identifiers of the passes counted this year and the date the count started. It contains no pass details. It is not synced or sent anywhere, and it may remain on the iPhone after the app is deleted.</p>
 
       <h2 id="retention">Retention and sharing</h2>
       <p>On the signing service, the confirmed pass is processed to produce the file that returns to your iPhone and is not kept as a stored pass. The signing service keeps the App Attest key identifier described above. On your iPhone, passes are listed in the app only until you quit it; the pass stays in Wallet until you remove it there.</p>
@@ -124,12 +124,12 @@
         <li>Skip place search and keep only the venue from your document, or none.</li>
         <li>Remove the pass from Wallet at any time.</li>
       </ul>
-      <p>Docs2Wallet is not directed to children under 13. Where privacy law gives you a right to ask about the information described here, email the address below. Because the signing service does not keep the pass, deletion of a pass you already created is done in Wallet. Deleting the app removes what it stores on your iPhone, except the free-pass counter described above.</p>
+      <p>Docs2Wallet is not directed to children under 13. Where privacy law gives you a right to ask about the information described here, email the address below. Because the signing service does not keep the pass, deletion of a pass you already created is done in Wallet. Deleting the app removes what it stores on your iPhone, except the free-pass record and the App Attest key identifier in the Keychain.</p>
 
       <h2 id="changes">Changes</h2>
       <p>If this policy changes, the updated date on this page will change with it. The current version is October 14, 2026.</p>
       <ul>
-        <li>October 14, 2026: Described App Attest, the share extension, ticket-link import, place search, purchases, the privacy filter and <code>.ics</code> export. Removed on-device pass storage, the settings switches and Delete all data, which the app does not have.</li>
+        <li>October 14, 2026: Described App Attest, the share extension, ticket-link import, place search, purchases, the privacy filter and <code>.ics</code> export. Removed on-device pass storage and Delete all data, which the app does not have.</li>
       </ul>
 
       <h2 id="contact">Contact</h2>
