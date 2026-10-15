@@ -4,7 +4,7 @@
       "folder": "Docs_to_Wallet_Privacy_Policy",
       "title": "Docs2Wallet",
       "summary": "How Docs2Wallet handles your documents and the Apple pass it signs with this developer certificate.",
-      "updated": "September 29, 2026",
+      "updated": "October 14, 2026",
       "symbol": "wallet",
       "href": "Docs_to_Wallet_Privacy_Policy/",
       "documents": [
@@ -12,6 +12,11 @@
           "file": "index.html",
           "title": "Docs2Wallet Privacy Policy",
           "href": "Docs_to_Wallet_Privacy_Policy/"
+        },
+        {
+          "file": "support.html",
+          "title": "Support",
+          "href": "Docs_to_Wallet_Privacy_Policy/support.html"
         }
       ]
     },
