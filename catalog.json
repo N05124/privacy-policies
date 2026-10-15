@@ -14,6 +14,31 @@
           "href": "Docs_to_Wallet_Privacy_Policy/"
         }
       ]
+    },
+    {
+      "folder": "Gear_Studio_Privacy_Policy",
+      "title": "Gear Studio",
+      "summary": "Gear Studio keeps your designs on your device and in your own iCloud, with no accounts, analytics or tracking.",
+      "updated": "October 14, 2026",
+      "symbol": "doc",
+      "href": "Gear_Studio_Privacy_Policy/",
+      "documents": [
+        {
+          "file": "index.html",
+          "title": "Gear Studio Privacy Policy",
+          "href": "Gear_Studio_Privacy_Policy/"
+        },
+        {
+          "file": "support.html",
+          "title": "Support",
+          "href": "Gear_Studio_Privacy_Policy/support.html"
+        },
+        {
+          "file": "terms.html",
+          "title": "Terms of Use",
+          "href": "Gear_Studio_Privacy_Policy/terms.html"
+        }
+      ]
     }
   ]
 }
