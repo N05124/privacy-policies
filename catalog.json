@@ -14,6 +14,26 @@
           "href": "Docs_to_Wallet_Privacy_Policy/"
         }
       ]
+    },
+    {
+      "folder": "Unit_Conversion_Privacy_Policy",
+      "title": "Unit Conversion",
+      "summary": "Unit Conversion works entirely on your device and collects nothing; feedback is an email you choose to send.",
+      "updated": "October 14, 2026",
+      "symbol": "doc",
+      "href": "Unit_Conversion_Privacy_Policy/",
+      "documents": [
+        {
+          "file": "index.html",
+          "title": "Unit Conversion Privacy Policy",
+          "href": "Unit_Conversion_Privacy_Policy/"
+        },
+        {
+          "file": "support.html",
+          "title": "Support",
+          "href": "Unit_Conversion_Privacy_Policy/support.html"
+        }
+      ]
     }
   ]
 }
