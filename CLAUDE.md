@@ -14,7 +14,10 @@ privacy policy.
   purchases, analytics and crash reporting, plus the App Store privacy-label draft if there is one. Never claim a
   behaviour the code doesn't have, and never leave out one it has. If something is unclear, ask the owner; don't
   guess.
-- **Keep secrets out.** Only the contact address the policies already use is published. No keys, tokens, internal
+- **No email addresses.** Never publish the owner's or any personal email address, and no `mailto:` links. Contact goes
+  through the filtered contact form once it exists; until then the Contact section says "Contact details for questions
+  about this policy will be published here."
+- **Keep secrets out.** No keys, tokens, internal
   hostnames, server IPs or personal details.
 - **Keep URLs stable.** Never rename or move an existing folder. App Store Connect and the apps link to it.
 - **No Python on the owner's Mac.** `scripts/build_catalog.py` runs in GitHub Actions on every push to `main`. To run
