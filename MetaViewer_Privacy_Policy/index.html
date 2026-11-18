@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="MetaViewer privacy policy for the Instagram and Facebook professional-account integrations using Meta APIs.">
+  <title>MetaViewer Privacy Policy</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-view="policy" data-folder="MetaViewer_Privacy_Policy">
+  <a class="skip" href="#policy">Skip to policy</a>
+  <header class="toolbar"><div class="toolbar-row">
+    <a class="back" href="../"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M10 2 L2 10 L10 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Policies</a>
+  </div></header>
+  <main class="frame policy" id="policy">
+    <header class="title-block"><h1>MetaViewer</h1>
+      <p class="updated">Privacy Policy · Updated November 18, 2026</p>
+    </header>
+    <div id="sections"></div>
+    <article>
+      <p>MetaViewer is a personal-project application for connecting and managing Instagram professional accounts and, when authorized, Instagram accounts associated with Facebook Pages. It uses Meta's APIs only after you choose to authorize and run a supported feature. This policy is provided by the developer of MetaViewer; it is not a policy issued by Meta, Instagram, or Facebook.</p>
+      <p>The current application includes a local mock/test mode and a live mode under development. Describing an API capability in this policy does not mean it is already approved, enabled, or accessible for every account. Live account access depends on the permissions and features Meta makes available.</p>
+      <nav class="toc" aria-label="On this page">
+        <a href="#data">Information handled</a>
+        <a href="#purpose">Purpose and uses</a>
+        <a href="#storage">Local storage, account access and security</a>
+        <a href="#sharing">Meta, third parties and sharing</a>
+        <a href="#retention">Retention and deletion</a>
+        <a href="#rights">Your choices and rights</a>
+        <a href="#children">Children</a>
+        <a href="#changes">Changes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <h2 id="data">Information handled</h2>
+      <p>Depending on your chosen account, the permissions you grant and the operation you run, MetaViewer may receive or process:</p>
+      <ul>
+        <li><strong>Account metadata:</strong> Instagram or Facebook identifiers, names, usernames, profile images, follower counts, linked Facebook Pages, connection status and permission information.</li>
+        <li><strong>Media and publishing data:</strong> photos or videos you select, URLs, captions, draft and publication identifiers, publication status and scheduling inputs.</li>
+        <li><strong>Engagement content:</strong> comments, replies, message/conversation content, mentions and the Meta account identifiers needed to show, moderate or respond to them.</li>
+        <li><strong>Insights:</strong> account and media performance measurements, such as reach and engagement, that Meta permits the connected account to access.</li>
+        <li><strong>Technical information:</strong> local profile-card identifiers, selected execution mode, requested operation, completion/failure status, duration, HTTP response status and minimal authentication transaction information.</li>
+      </ul>
+      <p>MetaViewer does not ask for your Instagram or Facebook password. The app does not access your unrelated social accounts unless you select and authorize them. If you use mock mode, simulated button actions do not issue live Meta API requests.</p>
+
+      <h2 id="purpose">Purpose and uses</h2>
+      <p>The app processes these categories of information to identify your chosen accounts; verify whether access remains authorized; show account information and permitted analytics; prepare and carry out actions you initiate or explicitly schedule; display relevant comments/messages where supported; and troubleshoot security or API failures.</p>
+      <p>Connected-account information is not used for targeted advertising, cross-app tracking, or the sale of personal information. MetaViewer does not automatically post or send messages merely because you connected an account.</p>
+
+      <h2 id="storage">Local storage, account access and security</h2>
+      <p><strong>On-device profiles:</strong> MetaViewer stores profile-card information, user-selected display names, Instagram account metadata and the currently selected card in local app preferences. A locally connected session is stored using Apple's Keychain, with a device-only protection setting. This can contain an access token and limited account/session metadata.</p>
+      <p><strong>Drafts and scheduling:</strong> Draft information saved in the application is stored on the device in its Application Support directory. The current demo/test action history and pending publishing queue are held in process memory and are not a continuously operating hosted scheduling service. If this storage model changes, the policy will be updated.</p>
+      <p><strong>Login service:</strong> The HTTPS token-exchange service receives a one-time authorization code and proof to complete account authorization with Meta. It temporarily retains a cryptographic digest and expiration of the one-use login transaction (normally about ten minutes) to prevent replay. The current implementation does not maintain a server-side database of Instagram/Facebook access tokens or your posted media. Service access and diagnostic logs may contain technical metadata such as the time, IP address and response code; production retention settings remain subject to deployment configuration.</p>
+      <p><strong>Security:</strong> HTTPS protects transmissions to the login service and Meta. Meta App Secrets stay server-side rather than in the distributed iOS app. App diagnostics are designed not to include access tokens, authorization codes, captions, message bodies or raw request payloads. No technical measure can guarantee absolute security.</p>
+
+      <h2 id="sharing">Meta, third parties and sharing</h2>
+      <p>When you authorize a live connection or request a live action, information is transmitted to or received from <a href="https://www.meta.com/privacy/policy/">Meta Platforms</a>, including Instagram and Facebook services. Meta's policies govern data that Meta itself holds. Apple provides device features such as Keychain and the system authentication browser. The developer-operated HTTPS authentication service performs the one-time OAuth exchange.</p>
+      <p>When you publish or reply using a supported feature, content is sent to Meta for the account you have selected and may become visible according to that account's audience or privacy settings. Media URLs supplied for publishing may be fetched by Meta's systems. You control what you submit and must have permission to use that content.</p>
+      <p>The current app does not include an advertising SDK or a developer-managed system for selling Meta account data. Operating-system or hosting-provider infrastructure may process limited technical service records. No unrelated third-party recipients are authorized to use your connected account data for their own marketing.</p>
+
+      <h2 id="retention">Retention and deletion</h2>
+      <p>Profile metadata stays in local app preferences until you remove the profile card or uninstall the application. Disconnecting a profile deletes its saved Keychain authorization if no other profile card shares that session, but it can leave the local display name or username on the card. Removing the profile card deletes that card and its locally stored profile metadata.</p>
+      <p>Saved local drafts remain until you delete them, clear the application's stored data or uninstall the app. Deleting a profile card does not necessarily delete unrelated local drafts. Authentication state records expire after approximately ten minutes. Limited operational logs may remain for security and troubleshooting according to the host's configured retention and backups; this does not mean your published Instagram content is copied into a developer-controlled account database.</p>
+      <p>For complete, step-by-step instructions, see <a href="data-deletion.html">MetaViewer data deletion instructions</a>. This is the page to use as the Meta Developers Data Deletion Instructions URL when an instructions URL is accepted by the Meta dashboard. Removing an account connection here does not erase content already published on Instagram or delete records held by Meta itself.</p>
+
+      <h2 id="rights">Your choices and rights</h2>
+      <ul>
+        <li>Choose Mock or Live mode, connect only accounts you control, and avoid authorizing permissions you do not need.</li>
+        <li>Use the app's profile controls to disconnect or remove account details and locally stored authorization.</li>
+        <li>Revoke MetaViewer's access through the connected Facebook/Instagram account's current app authorization settings.</li>
+        <li>Delete local drafts, remove the app, and manage posts/messages directly within Meta's products where appropriate.</li>
+        <li>Use the deletion instructions to remove data the current application keeps locally. Privacy rights under applicable law may also apply to information held by service providers.</li>
+      </ul>
+      <p>If an account is inaccessible because the device is lost, revoke its Meta authorization to prevent further access. Uninstalling or revoking authorization does not remotely erase data stored on a missing device or content already submitted to Meta.</p>
+
+      <h2 id="children">Children</h2>
+      <p>MetaViewer is intended for people authorized to manage professional social-media accounts, not children under 13. The application is not designed to knowingly collect children's personal data.</p>
+
+      <h2 id="changes">Changes</h2>
+      <p>The current version is November 18, 2026. November 18, 2026: Initial MetaViewer privacy policy for the personal-project Instagram/Facebook professional-account integration. Material changes in collection, storage, sharing or deletion procedures will be described here with an updated date.</p>
+
+      <h2 id="contact">Contact</h2>
+      <p>Contact details for questions about this policy will be published here. Until a private contact mechanism is available, the current application provides local self-service deletion instructions at <a href="data-deletion.html">Data Deletion</a>. Do not post passwords, tokens, private messages or account-identifying information in public GitHub issues.</p>
+    </article>
+  </main>
+  <nav class="tab-bar" id="tab-bar" aria-label="Privacy policies"></nav>
+  <script src="../assets/site.js"></script>
+</body>
+</html>
