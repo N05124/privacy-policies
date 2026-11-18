@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Data deletion instructions for MetaViewer's Instagram and Facebook integrations.">
+  <title>Data Deletion Instructions</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-view="policy" data-folder="MetaViewer_Privacy_Policy">
+  <a class="skip" href="#policy">Skip to data deletion</a>
+  <header class="toolbar"><div class="toolbar-row">
+    <a class="back" href="../"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M10 2 L2 10 L10 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Policies</a>
+  </div></header>
+  <main class="frame policy" id="policy">
+    <header class="title-block">
+      <h1>MetaViewer</h1>
+      <p class="updated">Data Deletion Instructions · Updated November 18, 2026</p>
+    </header>
+    <div id="sections"></div>
+    <article>
+      <p>This is MetaViewer's public data deletion instructions page for its personal-project Instagram and Facebook integrations. You can use these steps without providing a password, access token or other secret to the developer.</p>
+      <nav class="toc" aria-label="On this page">
+        <a href="#disconnect">Disconnect an account</a>
+        <a href="#remove">Remove locally saved profile data</a>
+        <a href="#drafts">Delete local drafts and app data</a>
+        <a href="#revoke">Revoke access within Meta</a>
+        <a href="#server">What the authentication server retains</a>
+        <a href="#limits">What is not deleted</a>
+        <a href="#contact">Questions and requests</a>
+      </nav>
+      <h2 id="disconnect">Disconnect an account</h2>
+      <ol>
+        <li>Open MetaViewer on the device where the account was connected.</li>
+        <li>Open <strong>Profiles</strong> or the profile list on the <strong>Demo</strong> screen.</li>
+        <li>Select the connected profile card.</li>
+        <li>Select <strong>Log out / disconnect</strong>. The app removes its locally stored authorization for that account unless the same session is intentionally shared by another profile card.</li>
+      </ol>
+      <p>Disconnecting is not the same as deleting a profile card. It can leave a local display name or username visible in MetaViewer.</p>
+
+      <h2 id="remove">Remove locally saved profile data</h2>
+      <ol>
+        <li>Open the profile card again.</li>
+        <li>Select <strong>Remove profile card</strong> and confirm the deletion.</li>
+        <li>Repeat for any other cards that refer to the same connected account.</li>
+      </ol>
+      <p>Removing a card deletes its local profile entry and associated connection metadata. The app also attempts to remove any unshared Keychain session used by that card. If the device is lost or you cannot access the app, revoke the authorization from Meta using the instructions below.</p>
+
+      <h2 id="drafts">Delete local drafts and app data</h2>
+      <p>MetaViewer saves user-created drafts in local application storage. Removing an account card does not by itself guarantee that unrelated drafts are deleted. To clear all of the app's locally stored drafts, profile preferences and on-device files, remove the MetaViewer application from the device after disconnecting the accounts. In-memory demo logs and pending test queues are cleared when the app process ends.</p>
+      <p>Keychain items may survive app removal or a later reinstall. For that reason, disconnect each connected account first when possible and also revoke authorization within Meta.</p>
+
+      <h2 id="revoke">Revoke access within Meta</h2>
+      <p>In Facebook or Instagram, open the account's current settings for connected apps and websites or business integrations, locate MetaViewer or the corresponding developer integration and remove its access. Meta's settings labels can change. Revocation limits future API access even if you no longer have the device that originally connected the account.</p>
+      <p>For an Instagram professional account connected through Facebook Pages, review the relevant Facebook Business integrations and Page permissions as well.</p>
+
+      <h2 id="server">What the authentication server retains</h2>
+      <p>The MetaViewer OAuth service is designed to use a short-lived one-time authorization transaction. It stores a hash of the temporary state and proof with an expiration of approximately ten minutes, rather than maintaining a persistent server-side database of your Instagram account content or access tokens. Service security logs may contain technical metadata such as timestamps, IP addresses and response codes; their retention depends on the actual hosting configuration.</p>
+      <p>The current personal-project implementation does not provide a remote account-data deletion API or an automated Meta signed-request deletion callback. This page provides self-service deletion steps. If the app begins retaining Meta account data on a hosted service, its deletion process and this page must be updated before broader access is enabled.</p>
+
+      <h2 id="limits">What is not deleted</h2>
+      <p>Deleting MetaViewer data does not delete your Instagram or Facebook accounts, posts, comments or messages already stored by Meta. Manage that content through Meta's own products. It also cannot remotely erase data from a lost device or automatically delete data retained independently by an operating-system or hosting provider.</p>
+
+      <h2 id="contact">Questions and requests</h2>
+      <p>Contact details for privacy and deletion questions will be published here. Until a private contact mechanism is available, use the self-service steps above. Never disclose your password, access token, authorization code or personal account records in public GitHub issues.</p>
+      <p>For details on what MetaViewer processes, read its <a href="./">Privacy Policy</a>.</p>
+    </article>
+  </main>
+  <nav class="tab-bar" id="tab-bar" aria-label="Privacy policies"></nav>
+  <script src="../assets/site.js"></script>
+</body>
+</html>
