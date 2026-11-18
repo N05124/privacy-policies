@@ -46,6 +46,26 @@
       ]
     },
     {
+      "folder": "MetaViewer_Privacy_Policy",
+      "title": "MetaViewer",
+      "summary": "How MetaViewer handles connected Instagram/Facebook professional-account data, OAuth authorization, local drafts and deletion.",
+      "updated": "November 18, 2026",
+      "symbol": "lock",
+      "href": "MetaViewer_Privacy_Policy/",
+      "documents": [
+        {
+          "file": "index.html",
+          "title": "MetaViewer Privacy Policy",
+          "href": "MetaViewer_Privacy_Policy/"
+        },
+        {
+          "file": "data-deletion.html",
+          "title": "Data Deletion Instructions",
+          "href": "MetaViewer_Privacy_Policy/data-deletion.html"
+        }
+      ]
+    },
+    {
       "folder": "Unit_Conversion_Privacy_Policy",
       "title": "Unit Conversion",
       "summary": "Unit Conversion works entirely on your device and collects nothing; feedback is an email you choose to send.",
