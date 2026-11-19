@@ -353,3 +353,17 @@ a { color: var(--blue); }
   .toolbar, .tab-bar, .skip, .back { display: none; }
   a { color: #000; }
 }
+
+/* Group the published legal documents without changing existing document URLs. */
+.legal-navigation { display: flex; gap: 10px; margin: 8px 0 20px; }
+.legal-navigation a { flex: 1; padding: 12px; text-align: center; border-radius: 12px; background: var(--card); text-decoration: none; font-weight: 600; }
+.legal-group { margin: 16px 0 30px; scroll-margin-top: 20px; }
+.legal-group h2 { font-size: 24px; margin: 0 0 4px; }
+.legal-group > .lede { margin-bottom: 16px; }
+.legal-card { background: var(--card); border-radius: 16px; padding: 16px; margin: 12px 0; box-shadow: var(--shadow); }
+.legal-card-header { display: flex; align-items: center; gap: 12px; }
+.legal-card-header h3 { margin: 0; font-size: 18px; }
+.document-list { list-style: none; padding: 8px 0 0; margin: 8px 0 0; border-top: 1px solid var(--separator); }
+.document-list li { padding: 7px 0; }
+.document-list a { text-decoration: none; }
+.legal-navigation a:focus-visible, .document-list a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }

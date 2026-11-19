@@ -56,33 +56,54 @@
     bar.innerHTML = html;
   }
 
+  function documentCategory(doc) {
+    var name = (doc.file + " " + doc.title).toLowerCase();
+    return /terms|eula|license|licence|agreement|subscription|purchase/.test(name)
+      ? "terms"
+      : "privacy";
+  }
+
+  function documentList(policy, category) {
+    return (policy.documents || []).filter(function (doc) {
+      return documentCategory(doc) === category;
+    });
+  }
+
+  function renderDocumentGroup(policies, category, heading, description) {
+    var cards = policies.map(function (policy) {
+      var docs = documentList(policy, category);
+      if (!docs.length) return "";
+      return '<article class="legal-card"><div class="legal-card-header">' +
+        '<span class="card-icon">' + icon(policy.symbol) + '</span>' +
+        '<div><h3>' + escapeHtml(policy.title) + '</h3>' +
+        '<p class="card-meta">Updated ' + escapeHtml(policy.updated) + '</p></div></div>' +
+        '<ul class="document-list">' + docs.map(function (doc) {
+          return '<li><a href="' + doc.href + '">' + escapeHtml(doc.title) + '</a></li>';
+        }).join("") + '</ul></article>';
+    }).filter(Boolean).join("");
+    return '<section class="legal-group" id="' + category + '">' +
+      '<h2>' + heading + '</h2><p class="lede">' + description + '</p>' +
+      (cards || '<p class="status">No documents have been published in this section yet.</p>') +
+      '</section>';
+  }
+
   function renderLibrary(policies) {
     var library = document.getElementById("library");
     var status = document.getElementById("library-status");
     if (!library) return;
     if (!policies.length) {
-      if (status) status.textContent = "No privacy policies are published yet.";
+      if (status) status.textContent = "No legal documents are published yet.";
       library.innerHTML = "";
       return;
     }
     if (status) status.hidden = true;
-    library.innerHTML = policies
-      .map(function (policy) {
-        return (
-          '<a class="card" href="' +
-          policy.href +
-          '"><span class="card-icon">' +
-          icon(policy.symbol) +
-          '</span><span><span class="card-title">' +
-          escapeHtml(policy.title) +
-          '</span><span class="card-summary">' +
-          escapeHtml(policy.summary) +
-          '</span><span class="card-meta">Updated ' +
-          escapeHtml(policy.updated) +
-          '</span></span><span class="chevron" aria-hidden="true">›</span></a>'
-        );
-      })
-      .join("");
+    library.innerHTML =
+      '<nav class="legal-navigation" aria-label="Document categories">' +
+      '<a href="#privacy">Privacy Policies</a><a href="#terms">Terms of Service</a></nav>' +
+      renderDocumentGroup(policies, "privacy", "Privacy Policies",
+        "Privacy policies, data-deletion instructions, and available support documentation.") +
+      renderDocumentGroup(policies, "terms", "Terms of Service",
+        "Published terms of use, agreements, and applicable purchase conditions.");
   }
 
   function renderSections(policies) {
